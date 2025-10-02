@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مطعمO.M — الصفحة الرئيسية</title>
+    <meta name="description" content="مموقع مطعمنا — قائمة طعام، حجز، معرض، تواصل" />
+    <style>
+        /* Reset بسيط */
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Arabic', 'Helvetica Neue', Arial;
+            line-height: 1.4;
+            background: #fcfafa;
+            color: #141212
+        }
+        
+        body {
+            background: linear-gradient(180deg, #fffcfc 0%, #ec9005 100%);
+        }
+        /* تنسيق الحاوية */
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+        
+        .logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: #111;
+            color: #fbf4f4;
+            display: grid;
+            place-items: center;
+            font-weight: 700
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+        
+        nav a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 600
+        }
+        
+        .cta {
+            background: #e63946;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700
+        }
+        /* Hero */
+        
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center;
+            margin: 28px 0
+        }
+        
+        .hero .intro h1 {
+            font-size: 36px;
+            margin: 0 0 12px
+        }
+        
+        .hero .intro p {
+            margin: 0 0 18px;
+            color: #444
+        }
+        
+        .hero .actions {
+            display: flex;
+            gap: 12px
+        }
+        
+        .btn {
+            padding: 10px 16px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid transparent
+        }
+        
+        .btn-primary {
+            background: #2b9348;
+            color: #fff
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border-color: #2b9348;
+            color: #2b9348
+        }
+        
+        .hero-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 14px;
+            box-shadow: 0 6px 20px rgba(17, 17, 17, 0.06)
+        }
+        
+        .hero-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px
+        }
+        /* Menu */
+        
+        .section {
+            margin: 44px 0
+        }
+        
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 12px
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px
+        }
+        
+        .menu-item {
+            background: #f8f7f7;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 6px 18px rgba(17, 17, 17, 0.04);
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+        
+        .menu-item img {
+            width: 84px;
+            height: 84px;
+            object-fit: cover;
+            border-radius: 10px
+        }
+        
+        .menu-item .meta {
+            flex: 1
+        }
+        
+        .menu-item .meta h3 {
+            margin: 0;
+            font-size: 16px
+        }
+        
+        .price {
+            font-weight: 800;
+            color: #2b9348
+        }
+        /* Gallery */
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px
+        }
+        /* Reservation + contact */
+        
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 18px
+        }
+        
+        form {
+            background: #f6f2f2;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(17, 17, 17, 0.06)
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700
+        }
+        
+        input[type=text],
+        input[type=email],
+        input[type=time],
+        input[type=date],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+        
+        .muted {
+            color: #666;
+            font-size: 14px
+        }
+        
+        footer {
+            margin-top: 40px;
+            border-top: 1px solid #0b0b0b;
+            padding-top: 22px;
+            color: #666
+        }
+        /* Responsive */
+        
+        @media(max-width:920px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+            .cols {
+                grid-template-columns: 1fr
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+        
+        @media(max-width:480px) {
+            .menu-grid {
+                grid-template-columns: 1fr
+            }
+            nav ul {
+                gap: 10px
+            }
+            .hero .intro h1 {
+                font-size: 28px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo">O.M</div>
+                <div>
+                    <div style="font-weight:800">مطعم اسامة</div>
+                    <div class="muted">نكهات تلامس الذاكرة</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#menu">القائمة</a></li>
+                    <li><a href="#gallery">المعرض</a></li>
+                    <li><a href="#reservation">حجز</a></li>
+                    <li><a class="cta" href="#contact">تواصل</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="intro">
+                    <h1>أشهى الأطباق، تجربة لا تُنسى</h1>
+                    <p>مرحبًا بكم في مطعم O.M— مزيج من الأصالة والابتكار. تذوّق أطباقنا المعدّة من مكونات طازجة ومحلية.</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="#reservation">احجز طاولتك</a>
+                        <a class="btn btn-outline" href="#menu">استعرض القائمة</a>
+                    </div>
+                </div>
+                <aside class="hero-card">
+                    <img src="c:\Users\ناصر تكنولوجي\Downloads\healthy food.jfif" alt="طبق مميز" />
+                    <div style="margin-top:12px;font-weight:700">عرض اليوم: سلطة البحر المتوسط</div>
+                    <div class="muted">طبق مختار طازج يوميًا</div>
+                </aside>
+            </section>
+
+            <section id="menu" class="section">
+                <h2>قائمة مختارة</h2>
+                <div class="menu-grid">
+                    <article class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1604908177522-3d9d5e7c0f12?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="طبق 1">
+                        <div class="meta">
+                            <h3>طبق مشوي مع صلصة خاصة</h3>
+                            <div class="muted">قطع لحم طازجة مع خضار مشوية</div>
+                        </div>
+                        <div class="price">$12</div>
+                    </article>
+
+                    <article class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1543352634-69d7b3d1b4f0?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="طبق 2">
+                        <div class="meta">
+                            <h3>بيسمارك باستا</h3>
+                            <div class="muted">باستا كريمة بالجبن وزيتون</div>
+                        </div>
+                        <div class="price">$9</div>
+                    </article>
+
+                    <article class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="طبق 3">
+                        <div class="meta">
+                            <h3>سمك مقلي مع تتبيلة خاصة</h3>
+                            <div class="muted">مقدّم مع أرز بالزعفران</div>
+                        </div>
+                        <div class="price">$14</div>
+                    </article>
+
+                    <article class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="طبق 4">
+                        <div class="meta">
+                            <h3>برغر الشيف</h3>
+                            <div class="muted">لحم طازج، جبن مميز، خبز محمّص</div>
+                        </div>
+                        <div class="price">$11</div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="gallery" class="section">
+                <h2>معرض صور</h2>
+                <div class="gallery">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="صورة1">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="صورة2">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="صورة3">
+                    <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="صورة4">
+                    <img src="c:\Users\ناصر تكنولوجي\Downloads\Burger meteor (1).jfif" alt=" 5">
+                    <img src="c:\Users\ناصر تكنولوجي\Downloads\تنزيل (34).jfif" alt="6"><img src="c:\Users\ناصر تكنولوجي\Downloads\Cheese Overload A Tempting Pizza Slice#pikbest#Backgrounds.jfif" alt="7"><img src="c:\Users\ناصر تكنولوجي\Downloads\تنزيل (19).jfif"
+                        alt="llll">
+
+                </div>
+            </section>
+
+            <section id="reservation" class="section">
+                <h2>حجز طاولة</h2>
+                <div class="cols">
+                    <div>
+                        <p class="muted">املأ النموذج أدناه لتأكيد الحجز. سنعاود الاتصال بك لتأكيد الحجز خلال 24 ساعة.</p>
+                        <form id="reservationForm" action="reserve.php" method="POST">
+                            <div class="form-row">
+                                <div>
+                                    <label for="name">الاسم الكامل</label>
+                                    <input id="name" name="name" type="text" required>
+                                </div>
+                                <div>
+                                    <label for="phone">رقم الهاتف</label>
+                                    <input id="phone" name="phone" type="text" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row" style="margin-top:10px">
+                                <div>
+                                    <label for="date">التاريخ</label>
+                                    <input id="date" name="date" type="date" required>
+                                </div>
+                                <div>
+                                    <label for="time">الوقت</label>
+                                    <input id="time" name="time" type="time" required>
+                                </div>
+                            </div>
+
+                            <div style="margin-top:10px">
+                                <label for="guests">عدد الأشخاص</label>
+                                <select id="guests" name="guests">
+      <option>1</option><option>2</option><option>3</option>
+      <option>4</option><option>5+</option>
+    </select>
+                            </div>
+
+                            <div style="margin-top:12px">
+                                <label for="notes">ملاحظات</label>
+                                <textarea id="notes" name="notes" rows="3"></textarea>
+                            </div>
+
+                            <div style="margin-top:12px;display:flex;gap:10px">
+                                <button type="submit" class="btn btn-primary">أرسل الحجز</button>
+                            </div>
+                        </form>
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5+</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-top:12px">
+                        <label for="notes">ملاحظات</label>
+                        <textarea id="notes" rows="3" placeholder="طلبات خاصة (إن وجدت)"></textarea>
+                    </div>
+
+                    <div style="margin-top:12px;display:flex;gap:10px">
+                        <button type="submit" class="btn btn-primary">أرسل الحجز</button>
+                        <button type="reset" class="btn">تفريغ</button>
+                    </div>
+                    </form>
+
+                    <script/> // مثال بسيط لمعالجة الحجز محليًا (يمكن ربطه بخادم لاحقاً) document.getElementById('reservationForm').addEventListener('submit', function(e) { e.preventDefault(); const name = document.getElementById('name').value.trim(); const phone
+                    = document.getElementById('phone').value.trim(); const date = document.getElementById('date').value; const time = document.getElementById('time').value; if (!name || !phone || !date || !time) { alert('يرجى تعبئة الحقول المطلوبة');
+                    return; } alert('تم إرسال الحجز!\n' + name + ' — ' + date + ' ' + time + '\nسنتواصل لتأكيد الحجز.'); this.reset(); });
+                    </script>
+                </div>
+
+                <aside>
+                    <h3>معلومات التواصل</h3>
+                    <p class="muted">زورونا يومياً من الساعة 11 صباحاً حتى 11 مساءً</p>
+                    <p style="margin:8px 0"><strong>العنوان:</strong>الحديدة-المطراق امام بقالة افريقية</p>
+                    <p style="margin:8px 0"><strong>هاتف:</strong> 730504954</p>
+                    <p style="margin:8px 0"><strong>البريد:</strong>osama730504954gmal.com</p>
+
+                    <div style="margin-top:12px">
+                        <a class="btn btn-outline" href="#contact">راسلنا</a>
+                    </div>
+                </aside>
+    </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>تواصل معنا</h2>
+        <p class="muted">للاستفسارات أو طلبات الشركات راسلنا عبر النموذج أو الهاتف.</p>
+        <form style="margin-top:10px">
+            <div class="form-row">
+                <div>
+                    <label for="cname">الاسم</label>
+                    <input id="cname" type="text">
+                </div>
+                <div>
+                    <label for="cemail">البريد الإلكتروني</label>
+                    <input id="cemail" type="email">
+                </div>
+            </div>
+            <div style="margin-top:10px">
+                <label for="cmessage">الرسالة</label>
+                <textarea id="cmessage" rows="4"></textarea>
+            </div>
+            <div style="margin-top:10px">
+                <button type="submit" class="btn btn-primary">أرسل</button>
+            </div>
+        </form>
+    </section>
+    </main>
+
+    <footer>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+            <div> O.Mجميع الحقوق محفوظة</div>
+            <div class="muted">صُمم بواسطةاسامه • </div>
+        </div>
+    </footer>
+    </div>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <title>سلايدر المأكولات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="title">🍽️ ألذ المأكولات</h1>
+
+    <div class="slider">
+        <div class="slides">
+            <!-- أضف عدد الصور الذي تريده -->
+            <img src="c:\Users\ناصر تكنولوجي\Downloads\Spicy Chicken Shawarma Wrap.jfif" alt="وجبة 1">
+            <img src="c:\Users\ناصر تكنولوجي\Downloads\بورجر مرحبا بك_.jfif" alt="وجبة 2">
+            <img src="c:\Users\ناصر تكنولوجي\Downloads\تنزيل (21).jfif" alt="وجبة 3">
+            <img src="c:\Users\ناصر تكنولوجي\Downloads\healthy food.jfif" alt="وجبة 4">
+        </div>
+    </div>
+    <li>
+    </li>
+
+</body>
+
+
+</html>
